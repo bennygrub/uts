@@ -10,6 +10,35 @@ class ChaptersController < ApplicationController
   # GET /chapters/1
   # GET /chapters/1.json
   def show
+    #author_string
+    author_count = @chapter.chapter_authors.count
+    author_map = @chapter.chapter_authors.each_with_index.map{|a, i|
+      if i < author_count -1
+        if a.first_name.blank?
+          "#{a.last_name} & "
+        else
+          "#{a.last_name}, #{a.first_name.first}. & "
+        end
+      else
+        if a.first_name.blank?
+          "#{a.last_name}"
+        else
+          "#{a.last_name}, #{a.first_name.first}."
+        end
+      end
+    }.compact
+    @author_string = author_map.join("")
+    
+    if (@chapter.page_range_end.to_i - @chapter.page_range_start.to_i) < 100
+      top = @chapter.page_range_end
+    else
+      top = @chapter.page_range_end
+    end
+
+
+    @first = "#{@author_string} #{@chapter.publication_year.strftime('%Y')}, '#{@chapter.chapter_title}', in #{@chapter.book_edition},"
+    @ital = "#{@chapter.book_name},"
+    @rest = "#{@chapter.publisher_name}, #{@chapter.publisher_city}, pp. #{@chapter.page_range_start}-#{top}."
   end
 
   # GET /chapters/new

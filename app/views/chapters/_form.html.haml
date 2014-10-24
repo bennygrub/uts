@@ -19,7 +19,7 @@
 
   .field
     = f.label :publication_year
-    = f.datetime_select :publication_year
+    = f.datetime_select :publication_year, discard_month: true, discard_hour:true, start_year: Time.now.year - 300, end_year: Time.now.year
   .field
     = f.label :book_name
     = f.text_field :book_name
