@@ -1,26 +1,8 @@
-%p#notice= notice
-
+%h1 Your Book Chapter Reference
 %p
-  %b Publication year:
-  = @journal.publication_year
-%p
-  %b Article title:
-  = @journal.article_title
-%p
-  %b Journal title:
-  = @journal.journal_title
-%p
-  %b Journal volume:
-  = @journal.journal_volume
-%p
-  %b Journal number:
-  = @journal.journal_number
-%p
-  %b Page range start:
-  = @journal.page_range_start
-%p
-  %b Page range end:
-  = @journal.page_range_end
+  =@first
+  %i=@ital
+  =@rest
 
 = link_to 'Edit', edit_journal_path(@journal)
 \|
