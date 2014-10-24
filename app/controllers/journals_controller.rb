@@ -12,11 +12,17 @@ class JournalsController < ApplicationController
   def show
     author_count = @journal.journal_authors.count
     author_map = @journal.journal_authors.each_with_index.map{|a, i|
-      if i < author_count -2
+      if i == 0
         if a.first_name.blank?
-          "#{a.last_name}, "
+          "#{a.last_name}"
         else
-          "#{a.last_name}, #{a.first_name.first}., "
+          "#{a.last_name}, #{a.first_name.first}."
+        end
+      elsif i < author_count -2
+        if a.first_name.blank?
+          ", #{a.last_name}"
+        else
+          ", #{a.last_name}, #{a.first_name.first}."
         end
       else
         if a.first_name.blank?
