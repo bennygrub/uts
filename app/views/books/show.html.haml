@@ -1,25 +1,8 @@
+%h1 Your Book Reference
 %p
-  %b Authors:
-  -@book.book_authors.each do |author|
-    = author.first_name
-    ,
-    = author.last_name
-    _____________________________
-%p
-  %b Publication year:
-  = @book.publication_year
-%p
-  %b Book title:
-  = @book.book_title
-%p
-  %b Book edition:
-  = @book.book_edition
-%p
-  %b Publisher name:
-  = @book.publisher_name
-%p
-  %b Publisher city:
-  = @book.publisher_city
+  =@first
+  %i=@ital
+  =@rest
 
 = link_to 'Edit', edit_book_path(@book)
 \|

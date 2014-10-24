@@ -10,6 +10,28 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+    #author_string
+    author_count = @book.book_authors.count
+    author_map = @book.book_authors.each_with_index.map{|a, i|
+      if i < author_count -1
+        if a.first_name.blank?
+          "#{a.last_name} & "
+        else
+          "#{a.last_name}, #{a.first_name.first}. & "
+        end
+      else
+        if a.first_name.blank?
+          "#{a.last_name}"
+        else
+          "#{a.last_name}, #{a.first_name.first}."
+        end
+      end
+    }.compact
+    @author_string = author_map.join("")
+    
+    @first = "#{@author_string} #{@book.publication_year.strftime('%Y')},"
+    @ital = @book.book_title#Applied solid mechanics
+    @rest = ", #{@book.book_edition}, #{@book.publisher_name}, #{@book.publisher_city}."
   end
 
   # GET /books/new

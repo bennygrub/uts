@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141024083241) do
+ActiveRecord::Schema.define(version: 20141024091334) do
 
   create_table "authors", force: true do |t|
     t.string   "first_name"
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 20141024083241) do
     t.string   "website_title"
     t.datetime "copyright"
     t.string   "article_title"
-    t.string   "publication_title"
+    t.string   "publication_city"
     t.datetime "date_viewed"
     t.text     "url"
     t.datetime "created_at"

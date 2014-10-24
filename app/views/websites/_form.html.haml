@@ -11,16 +11,16 @@
     = f.text_field :website_title
   .field
     = f.label :copyright
-    = f.datetime_select :copyright
+    = f.datetime_select :copyright, discard_month: true, discard_hour:true, start_year: Time.now.year - 300, end_year: Time.now.year
   .field
     = f.label :article_title
     = f.text_field :article_title
   .field
-    = f.label :publication_title
-    = f.text_field :publication_title
+    = f.label :publication_city
+    = f.text_field :publication_city
   .field
     = f.label :date_viewed
-    = f.datetime_select :date_viewed
+    = f.datetime_select :date_viewed, discard_hour:true, start_year: Time.now.year - 300, end_year: Time.now.year
   .field
     = f.label :url
     = f.text_area :url
