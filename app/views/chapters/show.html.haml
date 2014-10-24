@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Publication year:
+  = @chapter.publication_year
+%p
+  %b Book name:
+  = @chapter.book_name
+%p
+  %b Book edition:
+  = @chapter.book_edition
+%p
+  %b Chapter title:
+  = @chapter.chapter_title
+%p
+  %b Publisher name:
+  = @chapter.publisher_name
+%p
+  %b Publisher city:
+  = @chapter.publisher_city
+%p
+  %b Page range start:
+  = @chapter.page_range_start
+%p
+  %b Page range end:
+  = @chapter.page_range_end
+
+= link_to 'Edit', edit_chapter_path(@chapter)
+\|
+= link_to 'Back', chapters_path

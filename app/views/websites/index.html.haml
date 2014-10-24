@@ -1,0 +1,29 @@
+%h1 Listing websites
+
+%table
+  %tr
+    %th Website title
+    %th Copyright
+    %th Article title
+    %th Publication title
+    %th Date viewed
+    %th Url
+    %th
+    %th
+    %th
+
+  - @websites.each do |website|
+    %tr
+      %td= website.website_title
+      %td= website.copyright
+      %td= website.article_title
+      %td= website.publication_title
+      %td= website.date_viewed
+      %td= website.url
+      %td= link_to 'Show', website
+      %td= link_to 'Edit', edit_website_path(website)
+      %td= link_to 'Destroy', website, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Website', new_website_path

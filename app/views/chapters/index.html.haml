@@ -1,0 +1,33 @@
+%h1 Listing chapters
+
+%table
+  %tr
+    %th Publication year
+    %th Book name
+    %th Book edition
+    %th Chapter title
+    %th Publisher name
+    %th Publisher city
+    %th Page range start
+    %th Page range end
+    %th
+    %th
+    %th
+
+  - @chapters.each do |chapter|
+    %tr
+      %td= chapter.publication_year
+      %td= chapter.book_name
+      %td= chapter.book_edition
+      %td= chapter.chapter_title
+      %td= chapter.publisher_name
+      %td= chapter.publisher_city
+      %td= chapter.page_range_start
+      %td= chapter.page_range_end
+      %td= link_to 'Show', chapter
+      %td= link_to 'Edit', edit_chapter_path(chapter)
+      %td= link_to 'Destroy', chapter, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Chapter', new_chapter_path

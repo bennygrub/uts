@@ -1,0 +1,45 @@
+= nested_form_for @chapter do |f|
+  - if @chapter.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@chapter.errors.count, "error")} prohibited this chapter from being saved:"
+      %ul
+        - @chapter.errors.full_messages.each do |msg|
+          %li= msg
+  =f.fields_for :chapter_authors do |t|
+    .field
+      =t.label :first_name
+      =t.text_field :first_name
+    
+    .field
+      =t.label :last_name
+      =t.text_field :last_name
+    =t.link_to_remove "Remove Author"
+  %p
+    =f.link_to_add "Add another Author", :chapter_authors
+
+  .field
+    = f.label :publication_year
+    = f.datetime_select :publication_year
+  .field
+    = f.label :book_name
+    = f.text_field :book_name
+  .field
+    = f.label :book_edition
+    = f.text_field :book_edition
+  .field
+    = f.label :chapter_title
+    = f.text_field :chapter_title
+  .field
+    = f.label :publisher_name
+    = f.text_field :publisher_name
+  .field
+    = f.label :publisher_city
+    = f.text_field :publisher_city
+  .field
+    = f.label :page_range_start
+    = f.text_field :page_range_start
+  .field
+    = f.label :page_range_end
+    = f.text_field :page_range_end
+  .actions
+    = f.submit 'Save'

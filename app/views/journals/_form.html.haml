@@ -1,0 +1,41 @@
+= nested_form_for @journal do |f|
+  - if @journal.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@journal.errors.count, "error")} prohibited this journal from being saved:"
+      %ul
+        - @journal.errors.full_messages.each do |msg|
+          %li= msg
+  =f.fields_for :journal_authors do |t|
+    .field
+      =t.label :first_name
+      =t.text_field :first_name
+    
+    .field
+      =t.label :last_name
+      =t.text_field :last_name
+    =t.link_to_remove "Remove Author"
+  %p
+    =f.link_to_add "Add another Author", :journal_authors
+  .field
+    = f.label :publication_year
+    = f.datetime_select :publication_year
+  .field
+    = f.label :article_title
+    = f.text_field :article_title
+  .field
+    = f.label :journal_title
+    = f.text_field :journal_title
+  .field
+    = f.label :journal_volume
+    = f.text_field :journal_volume
+  .field
+    = f.label :journal_number
+    = f.text_field :journal_number
+  .field
+    = f.label :page_range_start
+    = f.text_field :page_range_start
+  .field
+    = f.label :page_range_end
+    = f.text_field :page_range_end
+  .actions
+    = f.submit 'Save'

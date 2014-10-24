@@ -1,0 +1,2 @@
+module ChapterAuthorsHelper
+end

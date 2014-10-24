@@ -1,0 +1,31 @@
+%h1 Listing journals
+
+%table
+  %tr
+    %th Publication year
+    %th Article title
+    %th Journal title
+    %th Journal volume
+    %th Journal number
+    %th Page range start
+    %th Page range end
+    %th
+    %th
+    %th
+
+  - @journals.each do |journal|
+    %tr
+      %td= journal.publication_year
+      %td= journal.article_title
+      %td= journal.journal_title
+      %td= journal.journal_volume
+      %td= journal.journal_number
+      %td= journal.page_range_start
+      %td= journal.page_range_end
+      %td= link_to 'Show', journal
+      %td= link_to 'Edit', edit_journal_path(journal)
+      %td= link_to 'Destroy', journal, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Journal', new_journal_path

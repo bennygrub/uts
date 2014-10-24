@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %title= content_for?(:title) ? yield(:title) : "UTS Havard Referencing"
+    %meta{:content => content_for?(:description) ? yield(:description) : "UTS Havard Referencing", :name => "Havard Referencing"}/
+    %link{:href => "http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800", :rel => "stylesheet", :type => "text/css"}
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true 
+    = csrf_meta_tags
+    = yield(:head)
+  %body
+    %header.navbar
+      %nav.navbar-inner
+        .container
+          = render 'layouts/navigation'
+    #main{:role => "main"}
+      .container
+        .content
+          .row
+            .span12
+              = render 'layouts/messages'
+              = yield
+    %footer

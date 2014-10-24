@@ -1,0 +1,23 @@
+%h1 Listing book_authors
+
+%table
+  %tr
+    %th Book
+    %th First name
+    %th Last name
+    %th
+    %th
+    %th
+
+  - @book_authors.each do |book_author|
+    %tr
+      %td= book_author.book_id
+      %td= book_author.first_name
+      %td= book_author.last_name
+      %td= link_to 'Show', book_author
+      %td= link_to 'Edit', edit_book_author_path(book_author)
+      %td= link_to 'Destroy', book_author, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Book author', new_book_author_path

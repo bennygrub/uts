@@ -1,0 +1,40 @@
+= nested_form_for @book do |f|
+  - if @book.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@book.errors.count, "error")} prohibited this book from being saved:"
+      %ul
+        - @book.errors.full_messages.each do |msg|
+          %li= msg
+  
+  =f.fields_for :book_authors do |t|
+    .field
+      =t.label :first_name
+      =t.text_field :first_name
+    
+    .field
+      =t.label :last_name
+      =t.text_field :last_name
+    =t.link_to_remove "Remove Author"
+  %p
+    =f.link_to_add "Add another Author", :book_authors
+
+  .field
+    = f.label :publication_year
+    = f.datetime_select :publication_year
+  .field
+    = f.label :publication_year
+    = f.datetime_select :publication_year
+  .field
+    = f.label :book_title
+    = f.text_field :book_title
+  .field
+    = f.label :book_edition
+    = f.text_field :book_edition
+  .field
+    = f.label :publisher_name
+    = f.text_field :publisher_name
+  .field
+    = f.label :publisher_city
+    = f.text_field :publisher_city
+  .actions
+    = f.submit 'Save'

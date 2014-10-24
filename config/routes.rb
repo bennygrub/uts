@@ -1,9 +1,28 @@
 Uts::Application.routes.draw do
+  resources :journal_authors
+
+  resources :chapter_authors
+
+  resources :book_authors
+
+  resources :books
+
+  resources :chapters
+
+  resources :journals
+
+  resources :websites
+
+  resources :authors
+
+  get "pages/about"
+  get "pages/contact"
+  get "pages/home"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'pages#home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

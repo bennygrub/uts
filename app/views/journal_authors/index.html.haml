@@ -1,0 +1,23 @@
+%h1 Listing journal_authors
+
+%table
+  %tr
+    %th Journal
+    %th First name
+    %th Last name
+    %th
+    %th
+    %th
+
+  - @journal_authors.each do |journal_author|
+    %tr
+      %td= journal_author.journal_id
+      %td= journal_author.first_name
+      %td= journal_author.last_name
+      %td= link_to 'Show', journal_author
+      %td= link_to 'Edit', edit_journal_author_path(journal_author)
+      %td= link_to 'Destroy', journal_author, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Journal author', new_journal_author_path

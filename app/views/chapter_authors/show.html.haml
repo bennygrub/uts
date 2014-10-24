@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Chapter:
+  = @chapter_author.chapter_id
+%p
+  %b First name:
+  = @chapter_author.first_name
+%p
+  %b Last name:
+  = @chapter_author.last_name
+
+= link_to 'Edit', edit_chapter_author_path(@chapter_author)
+\|
+= link_to 'Back', chapter_authors_path

@@ -1,0 +1,23 @@
+%h1 Listing chapter_authors
+
+%table
+  %tr
+    %th Chapter
+    %th First name
+    %th Last name
+    %th
+    %th
+    %th
+
+  - @chapter_authors.each do |chapter_author|
+    %tr
+      %td= chapter_author.chapter_id
+      %td= chapter_author.first_name
+      %td= chapter_author.last_name
+      %td= link_to 'Show', chapter_author
+      %td= link_to 'Edit', edit_chapter_author_path(chapter_author)
+      %td= link_to 'Destroy', chapter_author, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Chapter author', new_chapter_author_path

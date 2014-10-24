@@ -1,0 +1,19 @@
+= form_for @journal_author do |f|
+  - if @journal_author.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@journal_author.errors.count, "error")} prohibited this journal_author from being saved:"
+      %ul
+        - @journal_author.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :journal_id
+    = f.number_field :journal_id
+  .field
+    = f.label :first_name
+    = f.text_field :first_name
+  .field
+    = f.label :last_name
+    = f.text_field :last_name
+  .actions
+    = f.submit 'Save'

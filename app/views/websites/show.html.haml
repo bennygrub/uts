@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Website title:
+  = @website.website_title
+%p
+  %b Copyright:
+  = @website.copyright
+%p
+  %b Article title:
+  = @website.article_title
+%p
+  %b Publication title:
+  = @website.publication_title
+%p
+  %b Date viewed:
+  = @website.date_viewed
+%p
+  %b Url:
+  = @website.url
+
+= link_to 'Edit', edit_website_path(@website)
+\|
+= link_to 'Back', websites_path

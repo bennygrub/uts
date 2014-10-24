@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  publication_year: 2014-10-24 04:23:00
+  book_title: MyString
+  book_edition: MyString
+  publisher_name: MyString
+  publisher_city: MyString
+
+two:
+  publication_year: 2014-10-24 04:23:00
+  book_title: MyString
+  book_edition: MyString
+  publisher_name: MyString
+  publisher_city: MyString
