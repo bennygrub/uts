@@ -1,9 +1,21 @@
 %h1 Your Journal Reference
-%p
-  =@first
-  %i=@ital
-  =@rest
+.ref-form-area
+  .ref-form
+    #fe_text{:cols => "100", :rows => "3"}
+      =@ref.html_safe
+    %button#d_clip_button.my_clip_button{"data-clipboard-target" => "fe_text", "data-clipboard-text" => "Default clipboard text from attribute", :title => "Click me to copy to clipboard."}
+      %b Click to Copy to Clipboard...
+.text-center
+  = link_to 'Edit This Reference', edit_journal_path(@journal)
+  \|
+  = link_to 'Back to Home', root_path
 
-= link_to 'Edit', edit_journal_path(@journal)
-\|
-= link_to 'Back', journals_path
+:javascript
+  $(document).ready(function() {
+    var clip = new ZeroClipboard($("#d_clip_button"))
+  });
+
+  $("#clear-test").on("click", function(){
+    $("#fe_text").val("Copy me!");
+    $("#testarea").val("");
+  });

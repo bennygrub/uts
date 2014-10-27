@@ -34,6 +34,7 @@ end
 
 gem "haml-rails"
 gem "nested_form"
+gem 'zeroclipboard-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

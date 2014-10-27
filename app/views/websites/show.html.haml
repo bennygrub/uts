@@ -1,10 +1,23 @@
 %h1 Your Website Reference
-%p
-  ="#{@website.website_title} #{@website.copyright.strftime('%Y')},"
-  %i="#{@website.article_title},"
-  =" #{@website.publication_city}, viewed #{@website.date_viewed.strftime('%d %B %Y')}, <#{@website.url}>."
+.ref-form-area
+  .ref-form
+    #fe_text{:cols => "100", :rows => "3"}
+      ="#{@website.website_title} #{@website.copyright.strftime('%Y')},"
+      %i="#{@website.article_title},"
+      =" #{@website.publication_city}, viewed #{@website.date_viewed.strftime('%d %B %Y')}, <#{@website.url}>."
+    %button#d_clip_button.my_clip_button{"data-clipboard-target" => "fe_text", "data-clipboard-text" => "Default clipboard text from attribute", :title => "Click me to copy to clipboard."}
+      %b Click to Copy to Clipboard...
+.text-center
+  = link_to 'Edit This Reference', edit_website_path(@website)
+  \|
+  = link_to 'Back to Home', root_path
 
-= link_to 'Edit', edit_website_path(@website)
-\|
-= link_to 'Back', websites_path
+:javascript
+  $(document).ready(function() {
+    var clip = new ZeroClipboard($("#d_clip_button"))
+  });
+
+  $("#clear-test").on("click", function(){
+    $("#fe_text").val("Copy me!");
+  });
 

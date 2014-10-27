@@ -1,41 +1,40 @@
-= nested_form_for @journal do |f|
-  - if @journal.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@journal.errors.count, "error")} prohibited this journal from being saved:"
-      %ul
-        - @journal.errors.full_messages.each do |msg|
-          %li= msg
-  =f.fields_for :journal_authors do |t|
-    .field
-      =t.label :first_name
-      =t.text_field :first_name
-    
-    .field
-      =t.label :last_name
-      =t.text_field :last_name
-    =t.link_to_remove "Remove Author"
-  %p
-    =f.link_to_add "Add another Author", :journal_authors
-  .field
-    = f.label :publication_year
-    = f.datetime_select :publication_year, discard_month: true, discard_hour:true, start_year: Time.now.year - 300, end_year: Time.now.year
-  .field
-    = f.label :article_title
-    = f.text_field :article_title
-  .field
-    = f.label :journal_title
-    = f.text_field :journal_title
-  .field
-    = f.label :journal_volume
-    = f.text_field :journal_volume
-  .field
-    = f.label :journal_number
-    = f.text_field :journal_number
-  .field
-    = f.label :page_range_start
-    = f.text_field :page_range_start
-  .field
-    = f.label :page_range_end
-    = f.text_field :page_range_end
-  .actions
-    = f.submit 'Save'
+.ref-form-area
+  .ref-form
+    = nested_form_for @journal do |f|
+      - if @journal.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@journal.errors.count, "error")} prohibited this journal from being saved:"
+          %ul
+            - @journal.errors.full_messages.each do |msg|
+              %li= msg
+      =f.fields_for :journal_authors do |t|
+        .field
+          =t.text_field :first_name, placeholder: "Author First Name or Initial"
+        
+        .field
+          =t.text_field :last_name, placeholder: "Author Last Name or Initial"
+        .hide.remove-author=t.link_to_remove "Remove Author >>"
+      %p
+        =f.link_to_add "Add another Author >>", :journal_authors, class: "add-author"
+      .field
+        .extra-label.pull-left
+          Journal Publication Year:
+        .pull-right
+          = f.datetime_select :publication_year, discard_month: true, discard_hour:true, start_year: Time.now.year - 300, end_year: Time.now.year
+          = f.label " "
+        .clearfix
+      .field
+        = f.text_field :article_title, placeholder: "Article Title"
+      .field
+        = f.text_field :journal_title, placeholder: "Journal Title"
+      .field
+        = f.text_field :journal_volume, placeholder: "Volume Number (just the number)" 
+      .field
+        = f.text_field :journal_number, placeholder: "Journal Number (just the number)" 
+      .field
+        = f.text_field :page_range_start, placeholder: "Page Start Range (i.e. 145)"
+      .field
+        = f.text_field :page_range_end, placeholder: "Page End Range (i.e. 280)"
+      .actions
+        .pomegranate-flat-button
+          = f.submit 'Create Reference'

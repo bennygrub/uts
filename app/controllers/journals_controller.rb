@@ -34,9 +34,10 @@ class JournalsController < ApplicationController
     }.compact
     @author_string = author_map.join("")
     top = @journal.page_range_end
-    @first = "#{@author_string} #{@journal.publication_year.strftime('%Y')}, '#{@journal.article_title}',"
-    @ital = "#{@journal.journal_title},"
-    @rest = "vol. #{@journal.journal_volume}, no. #{@journal.journal_number}, pp. #{@journal.page_range_start}-#{top}."
+    #@first = "#{@author_string} #{@journal.publication_year.strftime('%Y')}, '#{@journal.article_title}',"
+    #@ital = "#{@journal.journal_title},"
+    #@rest = "vol. #{@journal.journal_volume}, no. #{@journal.journal_number}, pp. #{@journal.page_range_start}-#{top}."
+    @ref = "#{@author_string} #{@journal.publication_year.strftime('%Y')}, '#{@journal.article_title}', <i>#{@journal.journal_title}</i>, vol. #{@journal.journal_volume}, no. #{@journal.journal_number}, pp. #{@journal.page_range_start}-#{top}."
   end
 
   # GET /journals/new
@@ -56,7 +57,7 @@ class JournalsController < ApplicationController
 
     respond_to do |format|
       if @journal.save
-        format.html { redirect_to @journal, notice: 'Journal was successfully created.' }
+        format.html { redirect_to @journal }
         format.json { render action: 'show', status: :created, location: @journal }
       else
         format.html { render action: 'new' }

@@ -11,8 +11,8 @@
     = yield(:head)
   %body
     %header.navbar
-      %nav.navbar-inner
-        .container
+      %nav.navbar-default{:role => "navigation"}
+        .container-fluid
           = render 'layouts/navigation'
     #main{:role => "main"}
       .container

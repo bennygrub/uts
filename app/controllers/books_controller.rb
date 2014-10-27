@@ -29,9 +29,10 @@ class BooksController < ApplicationController
     }.compact
     @author_string = author_map.join("")
     
-    @first = "#{@author_string} #{@book.publication_year.strftime('%Y')},"
-    @ital = @book.book_title#Applied solid mechanics
-    @rest = ", #{@book.book_edition}, #{@book.publisher_name}, #{@book.publisher_city}."
+    #@first = "#{@author_string} #{@book.publication_year.strftime('%Y')},"
+    #@ital = @book.book_title#Applied solid mechanics
+    #@rest = ", #{@book.book_edition}, #{@book.publisher_name}, #{@book.publisher_city}."
+    @ref = "#{@author_string} #{@book.publication_year.strftime('%Y')}, <i>#{@book.book_title}</i>, #{@book.book_edition}, #{@book.publisher_name}, #{@book.publisher_city}."
   end
 
   # GET /books/new
@@ -51,7 +52,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to @book, notice: 'Book was successfully created.' }
+        format.html { redirect_to @book}
         format.json { render action: 'show', status: :created, location: @book }
       else
         format.html { render action: 'new' }

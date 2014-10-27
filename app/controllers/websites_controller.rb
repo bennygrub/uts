@@ -10,6 +10,7 @@ class WebsitesController < ApplicationController
   # GET /websites/1
   # GET /websites/1.json
   def show
+  @ref = "#{@website.website_title} #{@website.copyright.strftime('%Y')}, <i>#{@website.article_title}</i>, #{@website.publication_city}, viewed #{@website.date_viewed.strftime('%d %B %Y')}, <#{@website.url}.>"
   end
 
   # GET /websites/new
@@ -28,7 +29,7 @@ class WebsitesController < ApplicationController
 
     respond_to do |format|
       if @website.save
-        format.html { redirect_to @website, notice: 'Website was successfully created.' }
+        format.html { redirect_to @website }
         format.json { render action: 'show', status: :created, location: @website }
       else
         format.html { render action: 'new' }

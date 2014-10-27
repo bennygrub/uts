@@ -1,3 +1,134 @@
 // Place all the styles related to the Websites controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{font-family: 'Open Sans', sans-serif;}
+h1{text-align:center;}
+
+.ref-form-area{
+	margin: 0 auto 50px auto;
+	text-align:center;
+	position:relative;
+	width:550px;
+	background:#F64747;
+}
+
+.ref-form{
+	text-align:left;
+	padding: 20px 40px;
+	width: 90%;
+	margin: auto;
+}
+
+input, button, textarea {
+	height:40px;
+	width:100%;
+	border:none;
+	padding: 10px 5px;
+}
+select {
+    padding:3px;
+    margin: 0;
+    -webkit-border-radius:0px;
+    -moz-border-radius:0px;
+    border-radius:0px;
+    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    background: #f8f8f8;
+    color:#888;
+    border:none;
+    outline:none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+    height:40px;
+    width:100px;
+    text-align:center;
+    padding-left: 25px;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    select {padding-right:18px}
+}
+
+label {position:relative;margin-bottom: 14px!important;}
+label:after {
+    content:'<>';
+    font:11px "Consolas", monospace;
+    color:#aaa;
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -ms-transform:rotate(90deg);
+    transform:rotate(90deg);
+    right:8px; top:2px;
+    padding:0 0 2px;
+    border-bottom:1px solid #ddd;
+    position:absolute;
+    pointer-events:none;
+}
+label:before {
+    content:'';
+    right:6px; top:0px;
+    width:20px; height:20px;
+    background:#f8f8f8;
+    position:absolute;
+    pointer-events:none;
+    display:block;
+}
+.extra-label{
+	color: white;
+	margin: 9px 0 0 0;
+	font-size: 17px;
+	font-weight: 100;	
+}
+
+.field{
+	margin:10px 0;
+}
+
+.pomegranate-flat-button input {
+  position: relative;
+  vertical-align: top;
+  width: 100%;
+  height: 60px;
+  padding: 0;
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: #C02B6F;
+  border: 0;
+  border-bottom: 2px solid #B52461;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 -2px #B52466;
+  box-shadow: inset 0 -2px #B52466;
+}
+.pomegranate-flat-button:active input{
+  top: 1px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.pomegranate-flat-button input:hover{
+	background:#932456;
+}
+
+.remove-author a, .add-author a {
+	color:white;
+}
+.add-author{
+	background:#DB4545;
+	padding:3px;
+	color: white;
+}
+#fe_text{background:white;padding:10px;}
+
+button#d_clip_button.my_clip_button:hover{}
+
+@media (max-width: 800px) {
+
+  .ref-form{width:100%;padding:5px;}
+  .ref-form-area{width:100%;}
+}

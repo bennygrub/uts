@@ -36,9 +36,10 @@ class ChaptersController < ApplicationController
     end
 
 
-    @first = "#{@author_string} #{@chapter.publication_year.strftime('%Y')}, '#{@chapter.chapter_title}', in #{@chapter.book_edition},"
-    @ital = "#{@chapter.book_name},"
-    @rest = "#{@chapter.publisher_name}, #{@chapter.publisher_city}, pp. #{@chapter.page_range_start}-#{top}."
+    #@first = "#{@author_string} #{@chapter.publication_year.strftime('%Y')}, '#{@chapter.chapter_title}', in #{@chapter.book_edition},"
+    #@ital = "#{@chapter.book_name},"
+    #@rest = "#{@chapter.publisher_name}, #{@chapter.publisher_city}, pp. #{@chapter.page_range_start}-#{top}."
+    @ref = "#{@author_string} #{@chapter.publication_year.strftime('%Y')}, '#{@chapter.chapter_title}', in #{@chapter.book_edition}, <i>#{@chapter.book_name}</i>, #{@chapter.publisher_name}, #{@chapter.publisher_city}, pp. #{@chapter.page_range_start}-#{top}."
   end
 
   # GET /chapters/new
@@ -58,7 +59,7 @@ class ChaptersController < ApplicationController
 
     respond_to do |format|
       if @chapter.save
-        format.html { redirect_to @chapter, notice: 'Chapter was successfully created.' }
+        format.html { redirect_to @chapter }
         format.json { render action: 'show', status: :created, location: @chapter }
       else
         format.html { render action: 'new' }

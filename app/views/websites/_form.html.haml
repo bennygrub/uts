@@ -1,28 +1,35 @@
-= form_for @website do |f|
-  - if @website.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@website.errors.count, "error")} prohibited this website from being saved:"
-      %ul
-        - @website.errors.full_messages.each do |msg|
-          %li= msg
+.ref-form-area
+  .ref-form
+    = form_for @website do |f|
+      - if @website.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@website.errors.count, "error")} prohibited this website from being saved:"
+          %ul
+            - @website.errors.full_messages.each do |msg|
+              %li= msg
 
-  .field
-    = f.label :website_title
-    = f.text_field :website_title
-  .field
-    = f.label :copyright
-    = f.datetime_select :copyright, discard_month: true, discard_hour:true, start_year: Time.now.year - 300, end_year: Time.now.year
-  .field
-    = f.label :article_title
-    = f.text_field :article_title
-  .field
-    = f.label :publication_city
-    = f.text_field :publication_city
-  .field
-    = f.label :date_viewed
-    = f.datetime_select :date_viewed, discard_hour:true, start_year: Time.now.year - 300, end_year: Time.now.year
-  .field
-    = f.label :url
-    = f.text_area :url
-  .actions
-    = f.submit 'Save'
+      .field
+        = f.text_field :website_title, placeholder: "Website Title"
+      .field
+        .extra-label.pull-left
+          Year of Websites Most Recent Update:
+        .pull-right
+          = f.datetime_select :copyright, discard_month: true, discard_hour:true, start_year: Time.now.year - 300, end_year: Time.now.year
+          = f.label " "
+        .clearfix
+
+      .field
+        = f.text_field :article_title, placeholder: "Article Title" 
+      .field
+        = f.text_field :publication_city, placeholder: "Publication City"
+      .field
+        .extra-label.pull-left
+          Date Viewed:
+        .pull-right
+          = f.datetime_select :date_viewed, discard_hour:true, start_year: Time.now.year - 300, end_year: Time.now.year
+        .clearfix
+      .field
+        = f.text_field :url, placeholder: "Website URL"
+      .actions
+        .pomegranate-flat-button
+          = f.submit 'Create Reference'

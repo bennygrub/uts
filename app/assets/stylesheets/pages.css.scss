@@ -1,3 +1,36 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.home-center{
+	width:80%;
+	margin: 50px auto;
+}
+.home-box{
+	width:24%;
+	background:#F64747;
+	color:white;
+	padding: 10px 0;
+	min-height:160px;
+}
+
+a .home-box:hover{
+	background:#D83D3D;
+}
+
+.home-break{
+	width:1%;
+}
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .home-box{width:100%;}
+}

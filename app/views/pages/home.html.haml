@@ -1,11 +1,33 @@
 %h1 Choose Your Reference Type
-%p 
-	=link_to "Website Reference", new_website_path
-%p 
-	=link_to "Book Reference", new_book_path
-%p 
-	=link_to "Book Chapter Reference", new_chapter_path
-%p 
-	=link_to "Journal Reference", new_journal_path
 
+.home-center.text-center
+	=link_to new_website_path do
+		.home-box.pull-left
+			%h4 Website Reference
+			=image_tag("website-white.png", style: "width: 100px;")
+	.home-break.pull-left
+		&nbsp;
+
+	=link_to new_book_path do
+		.home-box.pull-left
+			%h4 Book Reference
+			=image_tag("book-white.png", style: "width: 100px;")
+		
+	.home-break.pull-left
+		&nbsp;
+
+	=link_to new_chapter_path do
+		.home-box.pull-left
+			%h4 Book Chapter Reference
+			=image_tag("chapter-white.png", style: "width:100px;")
+		
+	.home-break.pull-left
+		&nbsp;
+
+	=link_to new_journal_path do 
+		.home-box.pull-left
+			%h4 Journal Reference
+			=image_tag("journal-white.png", style: "width: 100px;")
+			
+	.clearfix
 
