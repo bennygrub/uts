@@ -35,11 +35,12 @@ class ChaptersController < ApplicationController
       top = @chapter.page_range_end
     end
 
+    @be = "in #{@chapter.book_edition},&nbsp;" unless @chapter.book_edition.blank?
 
     #@first = "#{@author_string} #{@chapter.publication_year.strftime('%Y')}, '#{@chapter.chapter_title}', in #{@chapter.book_edition},"
     #@ital = "#{@chapter.book_name},"
     #@rest = "#{@chapter.publisher_name}, #{@chapter.publisher_city}, pp. #{@chapter.page_range_start}-#{top}."
-    @ref = "#{@author_string} #{@chapter.publication_year.strftime('%Y')}, '#{@chapter.chapter_title}', in #{@chapter.book_edition}, <i>#{@chapter.book_name}</i>, #{@chapter.publisher_name}, #{@chapter.publisher_city}, pp. #{@chapter.page_range_start}-#{top}."
+    @ref = "#{@author_string} #{@chapter.publication_year.strftime('%Y')}, '#{@chapter.chapter_title}', #{@be}<i>#{@chapter.book_name}</i>, #{@chapter.publisher_name}, #{@chapter.publisher_city}, pp. #{@chapter.page_range_start}-#{top}."
   end
 
   # GET /chapters/new

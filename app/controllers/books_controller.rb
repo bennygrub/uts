@@ -28,11 +28,11 @@ class BooksController < ApplicationController
       end
     }.compact
     @author_string = author_map.join("")
-    @be = "#{@book.book_edition}," unless @book.book_edition.blank?
+    @be = "#{@book.book_edition},&nbsp;" unless @book.book_edition.blank?
     #@first = "#{@author_string} #{@book.publication_year.strftime('%Y')},"
     #@ital = @book.book_title#Applied solid mechanics
     #@rest = ", #{@book.book_edition}, #{@book.publisher_name}, #{@book.publisher_city}."
-    @ref = "#{@author_string} #{@book.publication_year.strftime('%Y')}, <i>#{@book.book_title}</i>, #{@be} #{@book.publisher_name}, #{@book.publisher_city}."
+    @ref = "#{@author_string} #{@book.publication_year.strftime('%Y')}, <i>#{@book.book_title}</i>, #{@be}#{@book.publisher_name}, #{@book.publisher_city}."
   end
 
   # GET /books/new
