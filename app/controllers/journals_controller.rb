@@ -26,9 +26,9 @@ class JournalsController < ApplicationController
         end
       else
         if a.first_name.blank?
-          "& #{a.last_name},"
+          "&nbsp;& #{a.last_name},"
         else
-          "& #{a.last_name}, #{a.first_name.first}. "
+          "&nbsp;& #{a.last_name}, #{a.first_name.first}. "
         end
       end
     }.compact
