@@ -18,7 +18,7 @@ class JournalsController < ApplicationController
         else
           "#{a.last_name}, #{a.first_name.first}."
         end
-      elsif i < author_count -2
+      elsif i < author_count -1
         if a.first_name.blank?
           ", #{a.last_name}"
         else
