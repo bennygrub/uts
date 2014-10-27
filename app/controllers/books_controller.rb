@@ -17,13 +17,13 @@ class BooksController < ApplicationController
         if a.first_name.blank?
           "#{a.last_name} & "
         else
-          "#{a.last_name}, #{a.first_name.first}. & "
+          "#{a.last_name}, #{a.first_name.strip.first}. & "
         end
       else
         if a.first_name.blank?
           "#{a.last_name}"
         else
-          "#{a.last_name}, #{a.first_name.first}."
+          "#{a.last_name}, #{a.first_name.strip.first}."
         end
       end
     }.compact

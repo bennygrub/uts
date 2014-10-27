@@ -16,28 +16,30 @@ class JournalsController < ApplicationController
         if a.first_name.blank?
           "#{a.last_name}"
         else
-          "#{a.last_name}, #{a.first_name.first}."
+          "#{a.last_name}, #{a.first_name.strip.first}."
         end
       elsif i < author_count -1
         if a.first_name.blank?
           ", #{a.last_name}"
         else
-          ", #{a.last_name}, #{a.first_name.first}."
+          ", #{a.last_name}, #{a.first_name.strip.first}."
         end
       else
         if a.first_name.blank?
           "&nbsp;& #{a.last_name},"
         else
-          "&nbsp;& #{a.last_name}, #{a.first_name.first}. "
+          "&nbsp;& #{a.last_name}, #{a.first_name.strip.first}. "
         end
       end
     }.compact
     @author_string = author_map.join("")
     top = @journal.page_range_end
+    vol = "&nbsp;vol. #{@journal.journal_volume}," unless @journal.journal_volume.blank?
+    jo = "&nbsp;no. #{@journal.journal_number}," unless @journal.journal_volume.blank?
     #@first = "#{@author_string} #{@journal.publication_year.strftime('%Y')}, '#{@journal.article_title}',"
     #@ital = "#{@journal.journal_title},"
     #@rest = "vol. #{@journal.journal_volume}, no. #{@journal.journal_number}, pp. #{@journal.page_range_start}-#{top}."
-    @ref = "#{@author_string} #{@journal.publication_year.strftime('%Y')}, '#{@journal.article_title}', <i>#{@journal.journal_title}</i>, vol. #{@journal.journal_volume}, no. #{@journal.journal_number}, pp. #{@journal.page_range_start}-#{top}."
+    @ref = "#{@author_string} #{@journal.publication_year.strftime('%Y')}, '#{@journal.article_title}', <i>#{@journal.journal_title}</i>,#{vol}#{jo} pp. #{@journal.page_range_start}-#{top}."
   end
 
   # GET /journals/new
