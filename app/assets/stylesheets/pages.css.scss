@@ -2,9 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+h4{
+	font-size:16px;
+}
 .home-center{
 	width:80%;
-	margin: 50px auto;
+	margin: 35px auto;
 }
 .home-box{
 	width:24%;
@@ -31,6 +34,13 @@ a .home-box:hover{
   text-align: center;
 }
 
-@media (max-width: 800px) {
-  .home-box{width:100%;}
+.panel-reminder{
+	width:65%;
+	margin:auto;
+	padding:15px;
+	background:rgb(241, 252, 255);
+}
+
+@media (max-width: 990px) {
+  .panel-reminder, .home-box{width:100%;}
 }
